@@ -1,17 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
 
-<h1>Project Proposal</h1>
-<h2>Remy Pinto</h2>
-<h2>Student ID : 35794733</h2>
-<h2>IP Address : 20.5.11.42</h2>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<h1>Project Proposal (222 Words)</h1>
-<p>For my project, I aim to design and build a website that presents my resume for future employment use cases. Furthermore, this website should allow for frequent updates to my resume and serve as a portfolio of past work. As this website is basic, its creation should be straightforward. Using a website as a portfolio would allow several improvements to my quality of life: I can easily update my resume, attach files and past work to the website, and personalise how the website is presented. Additionally, I can easily share my resume with others by providing a link that opens on many devices. 
-To create this website, I will utilise Nginx. This will allow me to create my website easily.  To customise this website, the Hypertext Markup Language (HTML) will be used. Furthermore, I will host my website on the Microsoft Azure platform, using the Ubuntu operating system. 
-To allow this website to achieve all my user goals, it must contain several features. These features include the ability to update the website's content. The website must include a section for storing past work, serving as both an archive and a portfolio of my work. This website must be able to present both animated videos and images.  Finally, the website must have a visually appealing design that makes it look nice and well-organised.  
-</p>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<h1>License Rational (93 Words)</h1>
-<p>For this website, all content should be licensed under the Creative Commons Attribution license. By doing so, others can create, distribute, display, and create derivative works of the website I create. However, to do so, I must be credited for the original work. 
-This fits, as the software used to create this website is not owned or created by myself.  Furthermore, the idea of creating a resume website is not my original idea and has been done many times before, so others should be allowed to use my work to do the same. 
-</p>
-<img src="Misc/CC_by_image.png" alt="Creative Commons Attribution license">
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#ebe9e3;
+      overflow-x:hidden;
+    }
+
+    h1,h2{
+      font-family:'Cormorant Garamond', serif;
+      font-weight:700;
+      color:#000;
+    }
+
+    p,a{
+      font-family:'Inter', sans-serif;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      padding:30px 40px;
+    }
+
+    .logo{
+      font-size:2rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px 80px;
+      min-height:60vh;
+    }
+
+    .hero h1{
+      font-size:9rem;
+      line-height:0.9;
+    }
+
+    .hero img{
+      width:340px;
+      object-fit:contain;
+    }
+
+    /* ABOUT SECTION */
+
+    .about{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      padding:60px 40px 80px;
+      gap:40px;
+    }
+
+    .about-left{
+      width:40%;
+    }
+
+    .about-left h2{
+      font-size:5rem;
+      line-height:0.9;
+      margin-bottom:30px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .buttons a{
+      text-decoration:none;
+      background:#000;
+      color:#fff;
+      width:220px;
+      padding:14px 20px;
+      border-radius:8px;
+      text-align:center;
+      font-weight:600;
+      transition:0.3s ease;
+    }
+
+    .buttons a:hover{
+      background:#222;
+    }
+
+    .about-right{
+      width:60%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:30px;
+    }
+
+    .about-right p{
+      max-width:420px;
+      font-size:1rem;
+      line-height:1.7;
+      font-weight:600;
+      color:#000;
+    }
+
+    .about-right img{
+      width:280px;
+      object-fit:contain;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+      }
+
+      .hero h1{
+        font-size:5rem;
+      }
+
+      .about{
+        flex-direction:column;
+      }
+
+      .about-left,
+      .about-right{
+        width:100%;
+      }
+
+      .buttons a{
+        width:100%;
+      }
+
+      .about-left h2{
+        font-size:4rem;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">
+      ◆ Remy Pinto
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <h1>Portfolio</h1>
+
+    <!-- Replace with your image -->
+    <img src="ProfilePicture.jpg" alt="picture of Filbert">
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <div class="about-left">
+
+      <h2>
+        About<br>
+        Filbert
+      </h2>
+
+      <div class="buttons">
+
+        <!-- Button Links -->
+        <a href="contact.html">Get in contact</a>
+
+        <a href="pastwork.html">Past Work</a>
+
+        <a href="achievements.html">Achievements</a>
+
+      </div>
+
+    </div>
+
+    <div class="about-right">
+
+      <p>
+        Filbert is currently a student at Murdoch University,
+        where he is studying the Cyber Security and Forensics
+        course.
+      </p>
+
+      <!-- Replace with your image -->
+      <img src="ProfilePicture.jpg" alt="picture of Filbert">
+
+    </div>
+
+  </section>
+
+</body>
+</html>
