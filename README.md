@@ -1,13 +1,13 @@
-#ResumeWebsite
+#ResumeWebsite#
 In this project, we create a website to host an online Resume off of an IAAS system. for this project, we utilise Microsft Azure, hosting a Linux (ubuntu 24.04) system.
 
 
-#Website Creation History/Process
+#Website Creation History/Process#
 
-##Creation of the Microsoft Azure Virtual Machine
+##Creation of the Microsoft Azure Virtual Machine##
 For this step , we have created a Linux Virtual Machine on the Microsoft Azure platform. for the creation of this system, we have created a fairley weak system as the website that we are creating is simple, which means we do not need to incure higher costs for a more powerful system which will go under utilised. following the process on the website, we created a low power "B-Series" system, ruinnig "Ubuntu Server 24.04 LTS". we then generateda  key pair to allows us to access the virtual machine. under the "select inbound ports", ensure that HTTP (80), HTTPS (443), and SSH (22) are selected. this will allow the system to display the website
 
-##connecting to the Virtual system
+##connecting to the Virtual system##
 to connect to the virtual system, ensure that you have the Key Pair that you have created in an easily accesssable location, to allow for the accessing of it when connecting to the system. to connect to the system, we used this command in Windows Command Prompt: where [FILElocationofkey] is the file location of our key pair, [VMName] is the name of our VM, and [IPADDRESS], which is the IP address of the system
 ```
 ssh -i [FILElocationofkey] [VMName]@[IPADDRESS]
@@ -19,7 +19,7 @@ command that i have used to access the system:
 ssh -i C:\Users\remyp\Desktop\remypintovm_key.pem remypinto@20.5.11.42
 ```
 
-##Configureation of Virtual Machine 
+##Configureation of Virtual Machine##
 once we have used the SSH command to remotley access the virtual machine, we must ensure that all of the programs are up to date. to do this we will use this command:
 
 ```
@@ -44,7 +44,7 @@ sudo nano index.html
 ```
 after making any changes you would like, and saving, if you reload the website on the other system, you will notice that the changes have been reflecet on the website. 
 
-##Installing Github on the virtual machine
+##Installing Github on the virtual machine##
 to install github on the virtual system, use this command:
 ```
 sudo apt install gh
