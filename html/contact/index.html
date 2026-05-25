@@ -1,21 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0b0b0f;
+      color:white;
+      overflow-x:hidden;
+      font-family:'Inter', sans-serif;
+      position:relative;
+      min-height:100vh;
+    }
+
+    /* BACKGROUND GLOW */
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle, rgba(0,255,208,0.14), transparent 70%);
+      top:-250px;
+      right:-200px;
+      z-index:-2;
+      animation:floatGlow 10s ease-in-out infinite;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle, rgba(128,0,255,0.18), transparent 70%);
+      bottom:-250px;
+      left:-200px;
+      z-index:-2;
+      animation:floatGlow 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(40px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    /* NAVBAR */
+
+    nav{
+      padding:30px 40px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
+      background:rgba(0,0,0,0.25);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:2rem;
+      font-family:'Cormorant Garamond', serif;
+      font-weight:700;
+      color:white;
+      letter-spacing:1px;
+      animation:fadeDown 1s ease;
+    }
+
+    /* MAIN SECTION */
+
+    .contact-section{
+      min-height:85vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:60px 20px;
+    }
+
+    .contact-container{
+      width:100%;
+      max-width:700px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:50px;
+      backdrop-filter:blur(20px);
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+      animation:fadeUp 1.2s ease;
+      transition:0.4s ease;
+    }
+
+    .contact-container:hover{
+      transform:translateY(-8px);
+      border-color:rgba(0,255,208,0.25);
+      box-shadow:0 30px 80px rgba(0,255,208,0.12);
+    }
+
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:4.5rem;
+      line-height:0.9;
+      margin-bottom:40px;
+      background:linear-gradient(to right,#ffffff,#00ffd0);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .contact-item{
+      margin-bottom:28px;
+      padding:25px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.35s ease;
+    }
+
+    .contact-item:hover{
+      transform:translateX(8px);
+      border-color:#00ffd0;
+      background:linear-gradient(
+        135deg,
+        rgba(0,255,208,0.08),
+        rgba(128,0,255,0.08)
+      );
+      box-shadow:0 12px 30px rgba(0,255,208,0.12);
+    }
+
+    .contact-label{
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:#8f8f8f;
+      margin-bottom:10px;
+      font-weight:600;
+    }
+
+    .contact-value{
+      font-size:1.15rem;
+      color:white;
+      font-weight:500;
+    }
+
+    a{
+      color:#00ffd0;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    a:hover{
+      color:#ffffff;
+    }
+
+    /* BACK BUTTON */
+
+    .back-button{
+      margin-top:40px;
+      display:inline-block;
+      padding:16px 28px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      color:white;
+      font-weight:600;
+      transition:0.35s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .back-button::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:120%;
+      height:100%;
+      background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+      );
+      transition:0.7s;
+    }
+
+    .back-button:hover::before{
+      left:120%;
+    }
+
+    .back-button:hover{
+      transform:translateY(-4px);
+      background:linear-gradient(135deg,#00ffd020,#8f00ff20);
+      border-color:#00ffd0;
+      box-shadow:0 12px 35px rgba(0,255,208,0.2);
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes fadeDown{
+      from{
+        opacity:0;
+        transform:translateY(-20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:700px){
+
+      .contact-container{
+        padding:35px;
+      }
+
+      h1{
+        font-size:3rem;
+      }
+
+      .contact-value{
+        font-size:1rem;
+      }
+
+    }
+
+  </style>
 </head>
 <body>
-    <h1>Contact Page</h1>
-    <p>This is a basic contact page to check if the file works correctly.</p>
-    <form action="#" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-        <button type="submit">Send</button>
-    </form>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="logo">
+      Filbert
+    </div>
+  </nav>
+
+  <!-- CONTACT SECTION -->
+
+  <section class="contact-section">
+
+    <div class="contact-container">
+
+      <h1>
+        Contact<br>
+        Information
+      </h1>
+
+      <div class="contact-item">
+
+        <div class="contact-label">
+          Location
+        </div>
+
+        <div class="contact-value">
+          Perth, Western Australia
+        </div>
+
+      </div>
+
+      <div class="contact-item">
+
+        <div class="contact-label">
+          Phone
+        </div>
+
+        <div class="contact-value">
+          <a href="tel:0421-1863-5678">
+            0421-1863-5678
+          </a>
+        </div>
+
+      </div>
+
+      <div class="contact-item">
+
+        <div class="contact-label">
+          Email
+        </div>
+
+        <div class="contact-value">
+          <a href="mailto:filbertcybersecurity@filbertinfo.me">
+            filbertcybersecurity@filbertinfo.me
+          </a>
+        </div>
+
+      </div>
+
+      <!-- WORKING BACK BUTTON -->
+
+      <a href="/" class="back-button">
+        ← Back to Homepage
+      </a>
+
+    </div>
+
+  </section>
+
 </body>
 </html>
