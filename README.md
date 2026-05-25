@@ -57,3 +57,43 @@ after doing so, you must log into github. to do so, type this command in, and fo
 ```
 gh auth login
 ```
+## accessing our created repositry
+after we have logged into github and we have already previousley made a github repositry that we want to access, we should add it to our virtual system for easy accessablitliy when working on the project. to do so, the cd command can be used to go back to the root of the system.
+```
+cd --
+```
+after doing so, this command will create a clone of the repositry on our system. this will allow us to easily access and move the file that we update directley onto out website. to do so, use this command:
+```
+git clone [the link to the repo]
+```
+in our case, we this:
+```
+git clone https://github.com/Filbert-63/ResumeWebsite
+```
+now, while we are in the root file location of the system, we should be able to see a new file on our system, which should have the same name as the repo we have just cloned. now if we use this command to change our directory to the file of the cloned repo, we should see that all of the content form the repo should be there as well:
+```
+cd /[REPONAME]
+```
+replace [REPONAME] with the name of the file. 
+
+## Cloning the nginx files to the repo and pusing the changes. 
+now that we have cloned the repo that we will be using, and we have installed nginx, we should copy the files that the installation of nginx has created into the repo, and push the changes. this allows us to work on the website in a more better and efficent method, as we will not have to use the command lkine to do so, rather we could use github desktop and visual studio code to make our changes and work on the project. in the creation of our website, we used these commands in order to allows us to do this:
+
+```
+cp -R /var/www/html /home/remypinto/ResumeWebsite/
+cd ResumeWebsite/
+git add .
+git commit -m "Trying to move files again"
+git push -u origin main
+```
+now, after doing these commands, if we check github, our files should now be up there.
+
+## creating a script to copy the website files to the nignx website
+
+
+
+
+## connecting our website to a domain / DNS
+
+
+## obtaining digital certificate 
