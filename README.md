@@ -10,6 +10,7 @@
 ```
 ssh -i [FILElocationofkey] [VMName]@[IPADDRESS]
 ```
+
 <p align="center">command that we have used</p>
 ```
 ssh -i C:\Users\remyp\Desktop\remypintovm_key.pem remypinto@20.5.11.42
