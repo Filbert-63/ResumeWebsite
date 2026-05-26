@@ -30,16 +30,16 @@ after doing this, we can now install the Nginx Web Server which allows us to hos
 sudo apt install nginx-full
 ```
 
-after this program has been installed, lets run this command to create some files and create the homepage of the website
+after this program has been installed, there should be some new files added onto our system. these files contian the files for our website, and are located at the file location:
 ```
-sudo nano /var/www/html/index.html
+/var/www/html
 ```
-in the /html file, the file "index.html" should be located. this file will contian the home page of our website and should display when the website has been opend.
-to open the website and verify that the installation of nginx has been done successfully, enter the IP address of your system into a web browser that is not within the virtual machine. if done correctley the contents of "index.html" should display. 
+in the /html file, the file "index.nginx-debian.html" should be located. this file will contian the home page of our website and should display when the website has been opend.
+to open the website and verify that the installation of nginx has been done successfully, enter the IP address of your system into a web browser that is not within the virtual machine. if done correctley the contents of "index.nginx-debian.html" should display. 
 
 to edit this file, type this command from the "/var/www/html" file location, and make any changes that you would like to make:
 ```
-sudo nano index.html
+sudo nano index.nginx-debian.html
 
 ```
 after making any changes you would like, and saving, if you reload the website on the other system, you will notice that the changes have been reflecet on the website. 
@@ -132,4 +132,4 @@ to obtian a digital certificate for the website, it is a fairley strtaight forwa
 ```
 (https://certbot.eff.org/)
 ```
-in our case, we followed the proived steps for "Nginx" on "Linux (snap)", which after doing so, created the certificate for our website. after completing the steps, if we enter our website using a browser, the website should now be secure and have the lock symbol at the top left of the search bar
+in our case, we followed the proived steps for "Nginx" on "Linux (snap)", which after doing so, created the certificate for our website. after completing the steps, if we enter our website using a browser, the website should now be secure and have the lock symbol at the top left of the search bar 
