@@ -35,7 +35,7 @@ after this program has been installed, there should be some new files added onto
 /var/www/html
 ```
 in the /html file, the file "index.html" should be located. this file will contian the home page of our website and should display when the website has been opend.
-to open the website and verify that the installation of nginx has been done successfully, enter the IP address of your system into a web browser that is not within the virtual machine. if done correctley the contents of "index.html" shoudl display. 
+to open the website and verify that the installation of nginx has been done successfully, enter the IP address of your system into a web browser that is not within the virtual machine. if done correctley the contents of "index.html" should display. 
 
 to edit this file, type this command from the "/var/www/html" file location, and make any changes that you would like to make:
 ```
@@ -75,6 +75,10 @@ now, while we are in the root file location of the system, we should be able to 
 cd /[REPONAME]
 ```
 replace [REPONAME] with the name of the file. 
+somthing important to note is that if we wouuld like to pull the most frequent update/commit of the repo, we must run this command from within the file location to do so:
+```
+git pull
+```
 
 ## Cloning the nginx files to the repo and pusing the changes. 
 now that we have cloned the repo that we will be using, and we have installed nginx, we should copy the files that the installation of nginx has created into the repo, and push the changes. this allows us to work on the website in a more better and efficent method, as we will not have to use the command lkine to do so, rather we could use github desktop and visual studio code to make our changes and work on the project. in the creation of our website, we used these commands in order to allows us to do this:
@@ -86,14 +90,45 @@ git add .
 git commit -m "Trying to move files again"
 git push -u origin main
 ```
-now, after doing these commands, if we check github, our files should now be up there.
+now, after doing these commands, if we check github, our files should now be up there. these files should act as a template for the rest of the project.
 
 ## creating a script to copy the website files to the nignx website
+for this project we had to make a script, so i decided that i would make a fairley simple script to copy the website files from the github into the file location of the website. this would allow me to make my website more effecientl;ey as i would be able to work on the code for the websiote from a diffrent location, rather then the virtual system, and easiley push the changes to the website. 
+to create the script, you must make a file with the extension .sh to ensure that you will be able to run the script. here is the code for the script that i have created:
+```
+#!/bin/bash
 
+# Define source and destination directories
+src_dir="/home/remypinto/ResumeWebsite/html"
+dst_dir="/var/www/html"
 
-
-
+# Copy files recursively (including subdirectories)
+# -r: recursive, -v: verbose (shows progress)
+cp -rv "$src_dir"/. "$dst_dir"/
+```
+to run this script, i can run this command, and the files will be copied over to the websites file location on the system:
+```
+sudo ./FileCopy.sh
+```
 ## connecting our website to a domain / DNS
+somthing important we must do is connect the website that we have made to a domain, which would allow us to access the website on any system. to do this, we must purchase a domain from the internet, and configure the DNS between the public ip address of the server and the domain name.
+to do this, we first purchased the domain filbertinfo.me from cloud flare, which costed around $20 AUD.  for this project i recomend that the domain is purchased from cloudflare as it is both cheaper than most options, and allows for the configuration of the dns record to be completed on the website.
+
+after the domain has been purchased, we are able to configure the DNS record for this domain from the cloudflare website, using the dashboard menu. to do this, we can press "Ctrl + K" to access the quick search menu, and from there we should type "DNS", select records and select our domain that we will be using for the website. if done correectley, this opage shoul open:
+![screenshot of dns record menu](screenshots\DNSRECORD.png)
+
+to add a DNS record to your domain do this:
+*select "add record button"
+*select Type A
+*for the name field, type the domain of your website
+*for the IPv4 address, type tyhe public ip address of your system that is hosting the website
+*press add record
+by doing this, we have now created a DNS record for the website. this means that once the record has propigated to the dns servers, we shoudl be able to type the domain of the webste that we have chosen, and be able to access our website, rather than the ip address. it is also necessary to repete the process for adding a record, but instead of entering the domain name, enter "www", so you are also able to access the website using www at the front of your domain. 
 
 
 ## obtaining digital certificate 
+to obtian a digital certificate for the website, it is a fairley strtaight forward process to do so. to do this, go to this website, and follow the steps provided:
+```
+(https://certbot.eff.org/)
+```
+in our case, we followed the proived steps for "Nginx" on "Linux (snap)", which after doing so, created the certificate for our website.
