@@ -39,7 +39,7 @@ to open the website and verify that the installation of nginx has been done succ
 
 to edit this file, type this command from the "/var/www/html" file location, and make any changes that you would like to make:
 ```
-sudo nano index.nginx-debian.html
+sudo nano index.nginx-debian.htmlvcvhb
 
 ```
 after making any changes you would like, and saving, if you reload the website on the other system, you will notice that the changes have been reflecet on the website. 
@@ -106,6 +106,7 @@ dst_dir="/var/www/html"
 # -r: recursive, -v: verbose (shows progress)
 cp -rv "$src_dir"/. "$dst_dir"/
 ```
+the code that is in script is very easily changeable, if you would like to adapt the code for personal usage, all you would need to change is the source and destination directorys to match you file system on your machine.
 to run this script, i can run this command, and the files will be copied over to the websites file location on the system:
 ```
 sudo ./FileCopy.sh
@@ -116,7 +117,7 @@ to do this, we first purchased the domain filbertinfo.me from cloud flare, which
 
 after the domain has been purchased, we are able to configure the DNS record for this domain from the cloudflare website, using the dashboard menu. to do this, we can press "Ctrl + K" to access the quick search menu, and from there we should type "DNS", select records and select our domain that we will be using for the website. if done correectley, this opage shoul open:
 
-! [screenshot of dns record menu](screenshots\DNSRECORD.png)
+![screenshot of dns record menu](screenshots\DNSRECORD.png)
 
 to add a DNS record to your domain do this:
 *select "add record button"
